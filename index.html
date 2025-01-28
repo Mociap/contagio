@@ -292,6 +292,24 @@
             <!-- Seção de Arquitetura -->
             <section id="arquitetura">
                 <h2>3. Arquitetura do Sistema</h2>
+                <p><strong>Estrutura de Arquivos:</strong></p>
+                <pre>
+                    projeto-eventos/
+                    ├── frontend/
+                    │   ├── node_module/
+                    │   ├── src/
+                    │   ├── public/
+                    │   └── package.json
+                    ├── backend/
+                    │   ├── src/
+                    │   │   ├── controllers/
+                    │   │   ├── models/
+                    │   │   ├── routes/
+                    │   │   └── config/
+                    │   └── package.json
+                    ├── .gitignore
+                    └── README.md
+                </pre>
                 <p><strong>Estrutura do Banco de Dados:</strong></p>
                 <ul>
                     <li>Tabelas: `users`, `events`, `campers`, `staff`, `registrations`</li>
@@ -317,7 +335,6 @@
                 <p><strong>Fluxo de Dados:</strong></p>
                 <p>Frontend -> API -> Banco de Dados -> API -> Frontend</p>
             </section>
-
             <!-- Seção de Cronograma e Custos -->
             <section id="cronograma-custos">
                 <h2>4. Cronograma e Custos</h2>
@@ -483,8 +500,19 @@
     </div>
 
     <script>
+        function atualizarArvoreArquivos() {
+            const containerArvore = document.querySelector('#arquitetura pre');
+            
+            fetch('http://localhost:3000/api/arvore-arquivos')
+                .then(response => response.text())
+                .then(arvore => {
+                    containerArvore.textContent = arvore;
+                });
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
             const sidebarLinks = document.querySelectorAll('.sidebar a');
+            atualizarArvoreArquivos();
             const contentSections = document.querySelectorAll('.content section');
 
             sidebarLinks.forEach(link => {
