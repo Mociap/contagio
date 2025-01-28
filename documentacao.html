@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação do Projeto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            background-color: #f0f0f0;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #333;
+        }
+
+        .main-content {
+            display: flex;
+            flex: 1;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #343a40;
+            border-radius: 5px;
+        }
+
+        .sidebar a:hover {
+            background-color: #e9ecef;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .content section {
+            display: none;
+        }
+
+        .content section.active {
+            display: block;
+        }
+
+        .week {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: white;
+            border-left: 4px solid #007bff;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .week h4 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .week ul {
+            margin-bottom: 0;
+            padding-left: 20px;
+        }
+
+        .week li {
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .task-checkbox {
+            margin-right: 5px;
+        }
+
+        .priority-section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .timeline {
+            margin-top: 20px;
+        }
+
+        .week {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: white;
+            border-left: 4px solid #007bff;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .week h4 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .week ul {
+            margin-bottom: 0;
+            padding-left: 20px;
+        }
+
+        .week li {
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .timeline-costs {
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .estimate-block,
+        .costs-block {
+            background-color: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .total-costs {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .costs-block h4 {
+            color: #007bff;
+            margin: 20px 0 10px 0;
+        }
+
+        .costs-block ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .costs-block li {
+            margin-bottom: 8px;
+        }
+
+        .costs-block li strong {
+            color: #28a745;
+        }
+
+        .task-checkbox {
+            margin-right: 10px;
+        }
+
+        .task-checkbox:checked+label {
+            text-decoration: line-through;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Documentação do Projeto - Eventos</h1>
+        <p>Um guia completo para o desenvolvimento do nosso sistema de eventos.</p>
+    </div>
+    <div class="main-content">
+        <div class="sidebar">
+            <h2>Tópicos</h2>
+            <ul>
+                <li><a href="#escopo" data-target="escopo">1. Escopo do Projeto</a></li>
+                <li><a href="#tecnologias" data-target="tecnologias">2. Tecnologias e Ferramentas</a></li>
+                <li><a href="#arquitetura" data-target="arquitetura">3. Arquitetura do Sistema</a></li>
+                <li><a href="#tarefas" data-target="tarefas">4. Lista de Tarefas</a></li>
+                <li><a href="#cronograma-custos" data-target="cronograma-custos">5. Cronograma e Custos</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <!-- Seção de Escopo do Projeto -->
+            <section id="escopo" class="active">
+                <h2>1. Escopo do Projeto</h2>
+                <p><strong>Objetivo Principal:</strong> Criar um site para eventos que permita a inscrição de
+                    participantes (acampantes) e voluntários (equipantes), além de um painel de gestão para ambos.</p>
+                <p><strong>Público-Alvo:</strong></p>
+                <ul>
+                    <li>Acampantes: Pessoas interessadas em participar do evento.</li>
+                    <li>Equipantes: Pessoas interessadas em trabalhar como voluntárias no evento.</li>
+                    <li>Administradores: Pessoas responsáveis pela gestão do evento.</li>
+                </ul>
+                <p><strong>Funcionalidades Principais:</strong></p>
+                <ul>
+                    <li>Página Inicial: Informações gerais sobre o evento, chamada para ação para inscrição.</li>
+                    <li>Página de Inscrição para Acampantes: Formulário de inscrição, opção de pagamento, confirmação
+                        por e-mail.</li>
+                    <li>Página de Inscrição para Equipantes: Formulário de inscrição, informações sobre
+                        responsabilidades, confirmação por e-mail.</li>
+                    <li>Sistema de Pagamentos:
+                        <ul>
+                            <li>Integração com gateway de pagamento</li>
+                            <li>Processamento de pagamentos para acampantes</li>
+                            <li>Processamento de pagamentos para equipantes</li>
+                            <li>Geração de comprovantes</li>
+                            <li>Controle de status de pagamento</li>
+                            <li>Relatórios financeiros</li>
+                        </ul>
+                    </li>
+                    <li>Painel de Gestão: Login para administradores, listagem de acampantes e equipantes, exportação de
+                        dados, envio de e-mails em massa, gestão de informações do evento.</li>
+                    <li>Sistema de Autenticação: Login/logout para administradores.</li>
+                    <li>Sistema de Notificação e Comunicação: Envio de e-mails (confirmação de inscrição, avisos, etc.).
+                    </li>
+                </ul>
+                <p><strong>Requisitos Não Funcionais:</strong></p>
+                <ul>
+                    <li>Responsividade: Acessível em diferentes dispositivos.</li>
+                    <li>Segurança: Proteção dos dados dos usuários.</li>
+                    <li>Desempenho: Rápido e eficiente.</li>
+                    <li>Usabilidade: Fácil de usar e intuitivo.</li>
+                    <li>Segurança dos Dados: Proteção contra acessos não autorizados e vulnerabilidades.</li>
+                    <li>Escalabilidade: Capacidade de lidar com um número crescente de usuários e dados.</li>
+                    <li>Performance: Bom tempo de resposta e carregamento.</li>
+                </ul>
+            </section>
+
+            <!-- Seção de Tecnologias e Ferramentas -->
+            <section id="tecnologias">
+                <h2>2. Escolha de Tecnologias e Ferramentas</h2>
+                <p><strong>Frontend:</strong></p>
+                <ul>
+                    <li>HTML, CSS, JavaScript</li>
+                    <li>Framework CSS: Bootstrap</li>
+                    <li>Framework/Biblioteca JavaScript: React</li>
+                    <li>Gerenciamento de Estado: Context API</li>
+                    <li>Roteamento: React Router</li>
+                    <li>Estilização: CSS Modules</li>
+                    <li>Formulários: React Hook Form</li>
+                    <li>Requisições HTTP: Axios</li>
+                    <li>Testes: Jest e React Testing Library</li>
+                    <li>Linter e Formatter: ESLint e Prettier</li>
+                    <li>Bundler: Vite</li>
+                    <li>Gerenciamento de Pacotes: npm/yarn</li>
+                    <li>Component Library: Material UI (opcional)</li>
+                    <li>Gateway de Pagamento: Stripe/Mercado Pago</li>
+                </ul>
+                <p><strong>Backend:</strong></p>
+                <ul>
+                    <li>Linguagem: Node.js</li>
+                    <li>Framework: Express.js</li>
+                    <li>Banco de Dados: MySQL</li>
+                    <li>ORM: Sequelize</li>
+                    <li>Autenticação: JWT</li>
+                    <li>Validação: Joi</li>
+                    <li>Testes: Jest e Supertest</li>
+                    <li>API Documentation: Swagger/OpenAPI</li>
+                    <li>Logging: Winston</li>
+                    <li>Environment Variables: dotenv</li>
+                    <li>CORS: cors</li>
+                </ul>
+                <p><strong>Outras Ferramentas:</strong></p>
+                <ul>
+                    <li>Git, npm/yarn, VS Code, Docker, GitHub Actions, DBeaver</li>
+                </ul>
+            </section>
+
+            <!-- Seção de Arquitetura -->
+            <section id="arquitetura">
+                <h2>3. Arquitetura do Sistema</h2>
+                <p><strong>Estrutura do Banco de Dados:</strong></p>
+                <ul>
+                    <li>Tabelas: `users`, `events`, `campers`, `staff`, `registrations`</li>
+                    <li>Relacionamentos: `users` (1:N) `registrations`, `events` (1:N) `registrations`, `users` (1:1)
+                        `campers`, `users` (1:1) `staff`</li>
+                    <li>Campos: (Detalhes dos campos de cada tabela)</li>
+                </ul>
+                <p><strong>Arquitetura das APIs:</strong></p>
+                <ul>
+                    <li>RESTful API</li>
+                    <li>Endpoints: (Lista de endpoints com suas funcionalidades)</li>
+                    <li>Autenticação: JWT</li>
+                    <li>Validação: Joi</li>
+                    <li>Resposta: JSON com códigos de status HTTP</li>
+                </ul>
+                <p><strong>Arquitetura do Frontend:</strong></p>
+                <ul>
+                    <li>Componentes: (Lista de componentes reutilizáveis)</li>
+                    <li>Rotas: (Lista de rotas da aplicação)</li>
+                    <li>Gerenciamento de Estado: Context API</li>
+                    <li>Requisições: Axios</li>
+                </ul>
+                <p><strong>Fluxo de Dados:</strong></p>
+                <p>Frontend -> API -> Banco de Dados -> API -> Frontend</p>
+            </section>
+
+            <!-- Seção de Cronograma e Custos -->
+            <section id="cronograma-custos">
+                <h2>4. Cronograma e Custos</h2>
+
+                <div class="timeline-costs">
+                    <h3>Tempo Estimado por Fase</h3>
+                    <div class="estimate-block">
+                        <p><strong>Desenvolvimento Base:</strong> 7 semanas</p>
+                        <ul>
+                            <li>Setup Inicial (1 semana)</li>
+                            <li>Banco de Dados (1 semana)</li>
+                            <li>Backend Core (1 semana)</li>
+                            <li>Frontend Essencial (1 semana)</li>
+                            <li>Funcionalidades Críticas (1 semana)</li>
+                            <li>Recursos Complementares (1 semana)</li>
+                            <li>Finalização (1 semana)</li>
+                        </ul>
+
+                        <p><strong>Tempo Adicional:</strong></p>
+                        <ul>
+                            <li>Buffer para imprevistos: 3 semanas</li>
+                            <li>Homologação: 2 semanas</li>
+                            <li>Treinamento e documentação: 1 semana</li>
+                        </ul>
+
+                        <p><strong>Total: 13 semanas (aproximadamente 3 meses)</strong></p>
+                    </div>
+
+                    <h3>Custos Estimados</h3>
+                    <div class="costs-block">
+                        <h4>Desenvolvimento (3 meses)</h4>
+                        <ul>
+                            <li>Desenvolvedor Full Stack: R$ 15.000,00/mês</li>
+                            <li>Designer UI/UX: R$ 8.000,00/mês</li>
+                            <li>Gerente de Projeto: R$ 12.000,00/mês</li>
+                            <li><strong>Subtotal Desenvolvimento: R$ 105.000,00</strong></li>
+                        </ul>
+
+                        <h4>Infraestrutura (Custo Inicial)</h4>
+                        <ul>
+                            <li>Servidor/Hospedagem: R$ 500,00</li>
+                            <li>Domínio (anual): R$ 100,00</li>
+                            <li>SSL: R$ 0,00 (Let's Encrypt)</li>
+                            <li>Serviços de Email: R$ 200,00/mês</li>
+                            <li>Setup Gateway de Pagamento: R$ 300,00</li>
+                            <li><strong>Subtotal Infraestrutura: R$ 1.100,00</strong></li>
+                        </ul>
+
+                        <h4>Manutenção Mensal</h4>
+                        <ul>
+                            <li>Hospedagem: R$ 500,00</li>
+                            <li>Suporte Técnico: R$ 2.000,00</li>
+                            <li>Atualizações e Melhorias: R$ 1.500,00</li>
+                            <li>Sistema de Backup: R$ 200,00</li>
+                            <li><strong>Subtotal Mensal: R$ 4.200,00</strong></li>
+                        </ul>
+
+                        <div class="total-costs">
+                            <h4>Investimento Total para Lançamento</h4>
+                            <p>R$ 106.100,00 + custos mensais de R$ 4.200,00</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de Tarefas -->
+            <section id="tarefas">
+                <h2>5. Lista de Tarefas</h2>
+                <div class="priority-section">
+                    <h3>Prioridades e Cronograma</h3>
+
+                    <div class="timeline">
+                        <div class="week">
+                            <h4>Semana 1 - Setup Inicial</h4>
+                            <ul>
+                                <li>
+                                    <input type="checkbox" id="task1" class="task-checkbox" checked>
+                                    <label for="task1">Criar repositório Git</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="task2" class="task-checkbox" checked>
+                                    <label for="task2">Configurar ambiente de desenvolvimento</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="task3" class="task-checkbox" checked>
+                                    <label for="task3">Inicializar projeto React com Vite</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="task4" class="task-checkbox" checked>
+                                    <label for="task4">Configurar projeto Node.js/Express</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="task5" class="task-checkbox">
+                                    <label for="task5">Criar Dockerfile inicial</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="week">
+                            <h4>Semana 2 - Banco de Dados</h4>
+                            <ul>
+                                <li>Implementar estrutura do MySQL</li>
+                                <li>Configurar Sequelize</li>
+                                <li>Criar migrations iniciais</li>
+                                <li>Implementar models principais</li>
+                            </ul>
+                        </div>
+
+                        <div class="week">
+                            <h4>Semana 3 - Backend Core</h4>
+                            <ul>
+                                <li>Desenvolver autenticação JWT</li>
+                                <li>Criar rotas principais da API</li>
+                                <li>Implementar validações com Joi</li>
+                                <li>Configurar sistema de logs</li>
+                            </ul>
+                        </div>
+
+                        <div class="week">
+                            <h4>Semana 4 - Frontend Essencial</h4>
+                            <ul>
+                                <li>Desenvolver componentes base</li>
+                                <li>Implementar sistema de rotas</li>
+                                <li>Criar formulários de inscrição</li>
+                                <li>Configurar Context API</li>
+                            </ul>
+                        </div>
+
+                        <div class="week">
+                            <h4>Semana 5 - Funcionalidades Críticas</h4>
+                            <ul>
+                                <li>Sistema de inscrição de acampantes</li>
+                                <li>Sistema de inscrição de equipantes</li>
+                                <li>Painel administrativo básico</li>
+                                <li>Integração frontend-backend</li>
+                            </ul>
+                        </div>
+
+                        <div class="week">
+                            <h4>Semana 6 - Recursos Complementares</h4>
+                            <ul>
+                                <li>Sistema de notificações por email</li>
+                                <li>Exportação de dados</li>
+                                <li>Relatórios básicos</li>
+                                <li>Dashboard administrativo</li>
+                            </ul>
+                        </div>
+
+                        <div class="week">
+                            <h4>Semana 7 - Finalização</h4>
+                            <ul>
+                                <li>Testes automatizados</li>
+                                <li>Documentação da API</li>
+                                <li>Deploy inicial</li>
+                                <li>Ajustes de performance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sidebarLinks = document.querySelectorAll('.sidebar a');
+            const contentSections = document.querySelectorAll('.content section');
+
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const target = this.getAttribute('data-target');
+
+                    contentSections.forEach(section => {
+                        section.classList.remove('active');
+                    });
+
+                    document.getElementById(target).classList.add('active');
+                });
+            });
+
+            loadKanbanState();
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
